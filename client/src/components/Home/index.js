@@ -32,7 +32,7 @@ async componentDidMount() {
 }
    render () {
        let { center2, loading, skateparks, skateshops, user } = this.state;
-       debugger
+       
     return (
         <div>
         {loading

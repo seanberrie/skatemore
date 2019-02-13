@@ -28,7 +28,7 @@ class Profile extends Component {
 
     render() {
         let { loading, results } = this.state
-        debugger
+        
     
          // Iterate through the filteredBrewery array and display info from each
         if (loading) return <div>hi</div>
