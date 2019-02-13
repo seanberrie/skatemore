@@ -4,13 +4,12 @@ export default class Popup extends Component {
   render () {
     return (
       <div className='popup'
-        onClick={ev => {
-    	ev.stopPropagation()
-          ev.preventDefault()
+        onClick={e => {
+    	e.stopPropagation()
+          e.preventDefault()
         }}
       >
-        <a href='http://www.google.com' target='_blank'>facebook</a>
-    Popup
+    <div>You Are Here!</div>
       </div>
     )
   }

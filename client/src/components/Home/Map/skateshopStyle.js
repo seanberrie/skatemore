@@ -19,7 +19,9 @@ const skateshopStyle = {
   color: '#EEEEE',
   fontSize: 16,
   fontWeight: 'bold',
-  padding: 4
+  padding: 4,
+  cursor: 'pointer',
+  zindex: -1
 }
 
 export { skateshopStyle }

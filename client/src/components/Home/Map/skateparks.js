@@ -5,8 +5,8 @@ import { skateparkStyle } from './skateparkStyle.js'
 export default class Skateparks extends Component {
   render () {
     return (
-      <div style={skateparkStyle}>
-        {this.props.text}
+      <div style={skateparkStyle} onClick={this.props.handleClick}>
+      
       </div>
     )
   }

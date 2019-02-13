@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3001
 const usersRoutes = require('./routes/users.js')
 const path = require('path')
 const axios = require('axios')
+const spotsRoutes = require('./routes/spots.js')
 
 mongoose.connect(MOGODB_URI, { useNewUrlParser: true }, (err) => {
   console.log(err || 'Connected to MOngoDB')
@@ -24,6 +25,7 @@ app.get('/api', (req, res) => {
 })
 
 app.use('/api/users', usersRoutes)
+app.use('/api/spots', spotsRoutes)
 
 app.get('/skateparks', (req, res) => {
   axios(`https://api.foursquare.com/v2/venues/search?client_id=${process.env.REACT_APP_CLIENT_KEY}&client_secret=${process.env.REACT_APP_SECRET_KEY}&limit=100&ll=${req.query.lat},${req.query.lng}&query=skatepark&v=20190209`)

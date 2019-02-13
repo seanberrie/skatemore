@@ -28,7 +28,7 @@ class App extends Component {
       <Layout currentUser={this.state.currentUser}>
         <Switch>
           <Route exact path="/" render={(props) => {
-						return <Home {...props} onLoginSuccess={this.onAuthSuccess} />}}/>
+						return <Home {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} />}}/>
           <Route exact path='/logout' render={() => {
             return <Logout logOut={this.logOut} /> }} />
           <Route exact path="/login" render={(props) => {
