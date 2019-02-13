@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default ({ currentUser }) => {
+export default ({ currentUser, user }) => {
   return (
     <nav className='nav'>
       <div className='float-left'>
@@ -11,8 +11,10 @@ export default ({ currentUser }) => {
         {currentUser
           ? (
             <span className='navtext'>
+              <Link className='nav-link' to='/Profile'>Profile</Link>
               <Link className='nav-link' to='/logout'>Logout</Link>
               <Link className='nav-link' to='/edit'>Edit Profile</Link>
+              <Link className='nav-link' to='/'>Map</Link>
             </span>
           )
           : (

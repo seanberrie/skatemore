@@ -8,10 +8,13 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Logout from './components/Logout'
 import Edit from './components/Edit'
+import Profile from './components/Home/Map/Profile/index.js'
+import axios from 'axios'
 class App extends Component {
 
   state = {
-    currentUser: httpClient.getCurrentUser()
+    currentUser: httpClient.getCurrentUser(),
+    user: null
   }
 
   onAuthSuccess = () => {
@@ -22,6 +25,12 @@ class App extends Component {
     httpClient.logout()
     this.setState({ currentUser: null })
   }
+  componentDidMount() {
+    if (this.state.currentUser !== null ) {
+    axios.get(`/api/users/${this.state.currentUser._id}`)
+        .then( res => {
+          this.setState({user:res.data.payload})
+        });}}
 
   render() {
     return (
@@ -36,7 +45,9 @@ class App extends Component {
           <Route path='/signup' render={(props) => {
             return <Signup {...props} onSignupSuccess={this.onAuthSuccess} />}}/>
           <Route exact path='/edit' render={(props) => {
-						return <Edit {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} logOut={this.logOut} />
+						return <Edit {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} logOut={this.logOut} />}}/>
+          <Route exact path='/profile' render={(props) => {
+            return <Profile {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} user={this.state.user} logOut={this.logOut} />
 					}}/>   
         </Switch>
       </Layout>

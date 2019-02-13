@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import Button from './AddSpot/button.js'
 
 export default class Skateshoppop extends Component {
   render () {
-    let { selectedShop } = this.props
-    debugger
+    let { selectedShop, user } = this.props
     return (
       <div className='popup'
         onClick={e => {
@@ -14,7 +14,7 @@ export default class Skateshoppop extends Component {
         <div>{selectedShop.name}</div>
         <div>{selectedShop.location.formattedAddress[0]}</div>
         <div>{selectedShop.location.formattedAddress[1]}</div>
-        <button type="submit">Add Place</button>
+        <Button place={selectedShop} user={user} />
       </div>
     )
   }

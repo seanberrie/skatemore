@@ -27,6 +27,15 @@ app.get('/api', (req, res) => {
 app.use('/api/users', usersRoutes)
 app.use('/api/spots', spotsRoutes)
 
+app.post('/location', (req, res) => {
+    axios(`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.REACT_APP_API_KEY}`)
+      .then(({ data }) => {
+        res.json({ data })
+      }).catch(err => {
+        console.log(err)
+      })
+  })
+
 app.get('/skateparks', (req, res) => {
   axios(`https://api.foursquare.com/v2/venues/search?client_id=${process.env.REACT_APP_CLIENT_KEY}&client_secret=${process.env.REACT_APP_SECRET_KEY}&limit=100&ll=${req.query.lat},${req.query.lng}&query=skatepark&v=20190209`)
     .then(({ data }) => {

@@ -30,16 +30,27 @@
 }
 
 .popup {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   height: 100px;
   width: 100px;
   background: white;
-  border: 1px black solid
+  border: 1px black solid;
+  border-radius: 3px
 }
 .parkpop {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   height: 40px;
   width: 100px;
   background: white;
   z-index: -2;
+  border-radius: 3px;
+  left: 50%;
 }

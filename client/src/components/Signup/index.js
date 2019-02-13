@@ -26,7 +26,6 @@ export default class SignUp extends Component {
     }
 
   render () {
-    debugger
       let { username, email, password } = this.state
     return (
       <div className="hero">

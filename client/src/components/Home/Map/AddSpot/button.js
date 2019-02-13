@@ -4,44 +4,40 @@ import { Link } from 'react-router-dom'
 
 export default class Button extends Component {
     state = {
-        addSpot: [],
-        userspots: []
+        addSpot: '',
+        userspots: ''
     }
-    send = () => {
-
-      console.log('fzf');
-
-}   
     handleSubmit = async (e) => {
       
+      let {user, place} = this.props
         e.preventDefault();
         debugger
-        let { place, user } = this.props;
-        debugger
-        this.setState({ addSpot: place.id, userspots: user._id })
+        
 
         debugger
         let res = await axios.get(`/api/spots/${place.id}`)
+        debugger
         // Check the returned spot array from our api
-        if (res.data.spot.length === 0) {
+        if (res.data.spot.length === 0 || res.data.spot[0].userspots.length === 0) {
             // Make a new spot
-            let newSpot = await axios.post(`/api/spots`, {spotId: `${place.id}`, userspots: `${user.id}`})
+            let newSpot = await axios.post(`/api/spots`, {spotId: `${place.id}`, userspots: `${user._id}`, spotname: `${place.name}`, lat: `${place.location.lat}`, lng: `${place.location.lng}`})
         }else {
           console.log(place.id)
         }
       }
   render () {
     let { user } = this.props
+    debugger
     return (
       <div>
-        { user === null
+        { user === null || undefined
           ? (<Link to="/login">
           <Button renderAs="button">
             <span>Login</span>
           </Button>
         </Link>)
           :          
-      (<button type="button" onClick={this.handleSubmit}>Click Me</button>
+      (<button type="button" onClick={this.handleSubmit}>Add Spot</button>
         )
           }
       </div>
