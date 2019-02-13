@@ -30,7 +30,7 @@ export default class SignUp extends Component {
     return (
       <div className="hero">
       <div className="login">
-        <h1>Skate More</h1>
+        <h1 className="title">Skate More</h1>
         <h3>Sign Up</h3>
         <div className='row'>
           <div>

@@ -37,7 +37,10 @@ async componentDidMount() {
         <div>
         {loading
             ? <Map center2={center2} skateparks={skateparks} skateshops={skateshops} user={user}/>
-            : <div>Loading...</div>
+            : <div className="loader">
+                <h1>Skate More</h1>
+                <h4>Loading...</h4>
+            </div>
         }
         </div>
     )

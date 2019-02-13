@@ -28,7 +28,7 @@ export default class Login extends Component {
         let { email, password } = this.state;
         return (
             <div className="hero">
-                <h1>Skate More</h1>
+                <h1 className="title">Skate More</h1>
                 <div className="login">
                 <h3>Login</h3>
                     <div className="form">

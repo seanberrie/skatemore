@@ -33,18 +33,18 @@ class Profile extends Component {
          // Iterate through the filteredBrewery array and display info from each
         if (loading) return <div>hi</div>
         return (
-            <div>
-                <h1> { this.props.user.username } Profile </h1>
+            <div className="hero">
+                <h1 className="title"> { this.props.user.username } Profile </h1>
                 <div className="row">
-                    <ul>
+                    <div className="border">
                         {results.map(( spot, i ) => {
-                            return<div key={i}>
+                            return<div className="imgcon" key={i}>
                             <h5>{spot.spotname}</h5>
                             <p>{spot.lat}</p>
                             <p>{spot.lng}</p>
                             </div>
                         })} 
-                    </ul>
+                    </div>
                 </div>
             </div>
             )

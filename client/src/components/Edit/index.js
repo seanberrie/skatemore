@@ -38,7 +38,7 @@ export default class Edit extends Component {
     return (
       <div className="hero">
       <div className="login">
-        <h1>Skate More</h1>
+        <h1 className="title">Skate More</h1>
         <h3>Edit Profile</h3>
         <div className='row'>
           <div className='column'>
