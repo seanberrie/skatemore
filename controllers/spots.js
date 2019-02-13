@@ -11,11 +11,12 @@ module.exports = {
 
   create: (req, res) => {
     console.log(req.body)
+    console.log('hit')
     Spot.create(req.body, (err, newSpot) => {
       if (err) res.json({ success: false, err })
       res.json({ success: true, newSpot })
       // push the users id into the created spots user array
-      newSpot.users.push(req.user.id)
+      newSpot.user.push(req.user.id)
 
       // save the new Spot with the user's id
       newSpot.save(err => {
@@ -26,7 +27,7 @@ module.exports = {
         User.findById(req.user.id, (err, user) => {
           console.log(newSpot)
           // what we want is to push newSpot spot_id so we can ping 4square API
-          user.favorites.push(newSpot.spotId)
+          user.userspots.push(newSpot.spotId)
           user.save(err => {
             console.log('User added this Spot successfully.')
           })
