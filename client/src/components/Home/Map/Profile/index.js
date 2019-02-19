@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Delete from './Delete/index.js'
+import GoogleMapReact from 'google-map-react'
+require('dotenv').config()
 
 
 class Profile extends Component {
@@ -40,6 +42,14 @@ class Profile extends Component {
             <div className="hero">
                 <h1 className="title">{ this.props.user.username }'s Spots</h1>
                 <div className="row">
+                    <div style={{ height: '60vh', width: '40%' }}>
+                    <GoogleMapReact
+                        bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY }}
+                        defaultCenter={{lat: 59.95, lng: 30.33}}
+                         defaultZoom={11}
+                     >
+                     </GoogleMapReact>
+                    </div>
                     <div className="border">
                         {results.map(( spot, i ) => {
                             return<div className="imgcon" key={i}>

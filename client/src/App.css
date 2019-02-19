@@ -112,7 +112,7 @@ form {
   width: 275px;
   height: 200px;;
   display: flex;
-  flex-direction: column !important;
+  flex-direction: column;
   text-align: center;
 }
 .deletebutton {
@@ -127,4 +127,11 @@ form {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  width: 50%;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  justify-content: space-between;
 }
