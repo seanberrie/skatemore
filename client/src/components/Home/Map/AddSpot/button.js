@@ -11,12 +11,7 @@ export default class Button extends Component {
       
       let {user, place} = this.props
         e.preventDefault();
-        
-        
-
-        
         let res = await axios.get(`/api/spots/${place.id}`)
-        
         // Check the returned spot array from our api
         if (res.data.spot.length === 0 || res.data.spot[0].userspots.length === 0) {
             // Make a new spot

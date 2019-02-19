@@ -11,7 +11,7 @@ const skateparkStyle = {
   top: -K_HEIGHT / 2,
   backgroundImage: `url(${Skatepark})`,
   backgroundSize: '27px 27px',
-  border: '1px solid #f44336',
+  border: '3px solid orange',
   borderRadius: K_HEIGHT,
   backgroundColor: 'white',
   textAlign: 'center',

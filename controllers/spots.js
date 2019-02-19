@@ -56,7 +56,6 @@ module.exports = {
         let index = foundSpot.users.indexOf(user_id)
         console.log(index)
         foundSpot.users.splice(index, 1)
-        // Set logic to UNLIKE Spot
         // Remove user's ID from Spot's users array
         foundSpot.save(err => {
           if (err) res.json({ success: false, err })

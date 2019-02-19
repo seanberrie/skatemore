@@ -5,7 +5,7 @@ export default ({ currentUser, user }) => {
   return (
     <nav className='nav'>
       <div className='float-left'>
-        <span className='nav-link'>Skate More</span>
+        <span className='nav-link nav-title'>Skate More</span>
       </div>
       <div className='float-right'>
         {currentUser

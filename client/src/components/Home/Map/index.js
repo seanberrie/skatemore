@@ -62,9 +62,10 @@ class Map extends Component {
              :null
              }
 
-            <Yourposition lat={center2.lat} lng={center2.lng}
-                    handleClick={this.togglePopup}
-                    showPopup={showPopup}
+            <Yourposition 
+              lat={center2.lat} lng={center2.lng}
+              handleClick={this.togglePopup}
+              showPopup={showPopup}
                 />
             {showPopup?
                 <Popup lat={center2.lat} lng={center2.lng}/>

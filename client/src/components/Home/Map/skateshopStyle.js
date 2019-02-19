@@ -12,7 +12,7 @@ const skateshopStyle = {
   top: -K_HEIGHT / 2,
   backgroundImage: `url(${Skateshop})`,
   backgroundSize: '26px 26px',
-  border: '1px solid black',
+  border: '3px solid black',
   borderRadius: K_HEIGHT,
   backgroundColor: 'white',
   textAlign: 'center',

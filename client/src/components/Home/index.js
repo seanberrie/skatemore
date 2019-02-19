@@ -20,6 +20,7 @@ async componentDidMount() {
     axios.get(`/api/users/${this.props.currentUser._id}`)
         .then( res => {
           this.setState({user:res.data.payload})
+          debugger
         });}
     let coordinates = await axios.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.REACT_APP_API_KEY}`);
     try {   
@@ -37,7 +38,7 @@ async componentDidMount() {
         <div>
         {loading
             ? <Map center2={center2} skateparks={skateparks} skateshops={skateshops} user={user}/>
-            : <div className="loader">
+            : <div className="loader fade-out">
                 <h1>Skate More</h1>
                 <h4>Loading...</h4>
             </div>
