@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Delete from './Delete/index.js'
 import GoogleMapReact from 'google-map-react'
+import Spots from './Spots/index.js'
 require('dotenv').config()
 
 
@@ -9,10 +10,15 @@ class Profile extends Component {
     state = {
         results: [],
         loading: true,
+        center2: {
+            lat:"",
+            lng:""
+        },
     }
 
     async componentWillMount() {
         let { user } = this.props
+        let coordinates = await axios.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.REACT_APP_API_KEY}`);
     debugger
         try {
             let places = await axios.get(`api/spots`);
@@ -22,15 +28,19 @@ class Profile extends Component {
                 let found = payload.spots.find(id => id === spot.spotId);
                 if (found) return spot;
             })
-            this.setState({ loading: false, results })
+            this.setState({ loading: false, results, center2: {lat:coordinates.data.location.lat, lng:coordinates.data.location.lng},})
         } catch(err) {
             console.log(err);
         }
     }
+    static defaultProps = {
+        center: {lat: 59.95, lng: 30.33},
+        zoom: 7
+      }
     
 
     render() {
-        let { loading, results } = this.state
+        let { loading, results, center2 } = this.state
         
     debugger
          
@@ -45,9 +55,18 @@ class Profile extends Component {
                     <div style={{ height: '60vh', width: '40%' }}>
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY }}
-                        defaultCenter={{lat: 59.95, lng: 30.33}}
-                         defaultZoom={11}
+                        defaultCenter={this.props.center}
+                         defaultZoom={7}
+                         center={center2}
                      >
+
+                     { results.map((spot, i) => (
+                     <Spots
+                        key={`marker_${i}`}
+                        lat={spot.lat}
+                        lng={spot.lng}
+                        />))}
+
                      </GoogleMapReact>
                     </div>
                     <div className="border">
