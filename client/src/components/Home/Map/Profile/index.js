@@ -19,7 +19,7 @@ class Profile extends Component {
     async componentWillMount() {
         let { user } = this.props
         let coordinates = await axios.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.REACT_APP_API_KEY}`);
-    debugger
+    
         try {
             let places = await axios.get(`api/spots`);
             let { data: { payload } } = await axios.get(`/api/users/${user._id}`)
@@ -42,7 +42,7 @@ class Profile extends Component {
     render() {
         let { loading, results, center2 } = this.state
         
-    debugger
+    
          
         if (loading) return <div className="loader fade-out">
         <h1>Skate More</h1>

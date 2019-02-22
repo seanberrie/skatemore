@@ -20,7 +20,7 @@ async componentDidMount() {
     axios.get(`/api/users/${this.props.currentUser._id}`)
         .then( res => {
           this.setState({user:res.data.payload})
-          debugger
+          
         });}
     let coordinates = await axios.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${process.env.REACT_APP_API_KEY}`);
     try {   
