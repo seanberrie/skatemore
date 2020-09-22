@@ -22,7 +22,7 @@ export default class Edit extends Component {
             this.props.history.push('/')
         }
     }
-
+    //this is dumb
     handleDelete = async (e) => {
         e.preventDefault()
         let user = await httpClient.deleteUser(this.state,`/api/users/${this.props.currentUser._id}`)
